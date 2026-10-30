@@ -126,9 +126,14 @@ section{padding-block:56px;border-top:1px solid var(--line)}
 @media (max-width:640px){.case-facts{grid-template-columns:1fr 1fr}}
 /* experience */
 .timeline{list-style:none;margin:0;padding:0;display:grid}
-.timeline>li{display:grid;grid-template-columns:180px 1fr;gap:24px;padding-block:20px;border-bottom:1px solid var(--line)}
+.timeline>li{display:block;padding-block:22px;border-bottom:1px solid var(--line)}
+.role-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px 20px;flex-wrap:wrap}
+.role-head .org{display:block}
+.role-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.role-tools .tags{margin:0;padding:0}
+.tools-label{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .timeline>li:first-child{padding-top:0}
-.when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:4px}
+.when{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:4px}
 .timeline h3{font-size:20px;font-weight:700}
 .timeline .org{color:var(--accent);font-weight:600}
 .timeline p{margin:6px 0 0;color:var(--muted);max-width:65ch}
@@ -137,14 +142,14 @@ section{padding-block:56px;border-top:1px solid var(--line)}
 .timeline .role>p{margin:8px 0 0;color:var(--ink);max-width:68ch}
 .points{margin:10px 0 0;padding-left:18px;display:grid;gap:5px;color:var(--muted);max-width:72ch}
 .points li::marker{color:var(--accent)}
-.role .tags{margin-top:12px}
+
 .role-link{margin-top:12px}
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .skills h4{font-family:var(--display);font-size:16px;font-weight:700;margin:0 0 10px}
 .skill-split{display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
 .skill-col{display:grid;gap:18px;align-content:start;min-width:0}
-.skill-col>h3.label{font-family:var(--mono);font-size:12px;font-weight:500;line-height:1.4}
+.skill-col>h3.label{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.01em;text-transform:none;color:var(--ink);line-height:1.3}
 .soft{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .soft li{display:grid;gap:2px;padding-bottom:14px;border-bottom:1px solid var(--line)}
 .soft li:last-child{border-bottom:0;padding-bottom:0}
@@ -223,7 +228,6 @@ footer .wrap{padding-block:24px;color:var(--muted);font-size:13px;border-top:1px
   .hero .wrap,.two{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
   .skills,.skill-split{grid-template-columns:1fr}
-  .timeline li{grid-template-columns:1fr;gap:4px}
 }
 @media (prefers-reduced-motion:no-preference){
   .card{transition:transform .2s ease,border-color .2s ease}
@@ -267,32 +271,32 @@ footer .wrap{padding-block:24px;color:var(--muted);font-size:13px;border-top:1px
 </div></header>
 
 <section id="experience"><div class="wrap">
-  <div class="sec-head"><h2>Experience</h2><span class="label">Most recent first</span></div>
+  <div class="sec-head"><h2>Experience</h2></div>
   <ol class="timeline">
-    <li><span class="when">Jul 2026 – Present</span><div class="role">
-      <h3>Website Administrator</h3><span class="org">The HOPE Initiative Foundation · Remote · Volunteer</span>
-      <p>Own the day-to-day running and growth of a national youth nonprofit's website, working directly with the CEO and program teams.</p>
-      <ul class="points"><li>Manage and publish website content in WordPress, keeping pages accurate, accessible, and aligned with the foundation's goals.</li><li>Redesigned the home page around an interactive map of the foundation's branches, so visitors can find their local chapter quickly.</li><li>Built the Core Team page and a dedicated team page for ZIPS, coordinating with members to collect bios and photo permissions.</li><li>Leading search engine optimization (SEO) work so the foundation shows up when people search for youth and charity programs.</li><li>Promote national and local programs by creating and publishing content that supports community outreach.</li><li>Troubleshoot site issues and roll out updates that keep the site secure, fast, and easy to use.</li></ul>
-      <ul class="tags"><li>WordPress</li><li>SEO</li><li>Web content</li><li>Accessibility</li></ul>
+    <li><div class="role">
+      <div class="role-head"><div><h3>Website Administrator</h3><span class="org">The HOPE Initiative Foundation · Remote · Volunteer</span></div><span class="when">Jul 2026 – Present</span></div>
+      <p>Run and grow a national youth nonprofit's website, working directly with the CEO and program teams.</p>
+      <ul class="points"><li>Manage and publish WordPress content, keeping pages accurate and accessible.</li><li>Redesigned the home page around an interactive map of the foundation's branches.</li><li>Built the Core Team and ZIPS team pages.</li><li>Leading SEO so the foundation shows up in youth and charity searches.</li></ul>
+      <div class="role-tools"><span class="tools-label">Skills &amp; tools</span><ul class="tags"><li>WordPress</li><li>SEO</li><li>Web content</li><li>Accessibility</li></ul></div>
       <div class="links role-link"><a href="https://thehopeinitiative.ca/" target="_blank" rel="noopener">Visit thehopeinitiative.ca ↗</a></div>
     </div></li>
-    <li><span class="when">Apr – Aug 2026</span><div class="role">
-      <h3>CRM Consultant / Team Lead</h3><span class="org">Shining L.I.G.H.T.E Youth Charity · XBIT 4500U capstone consulting project</span>
-      <p>Led a three-person student team that automated a youth charity's donor, event and contact workflows using tools it already paid for.</p>
-      <ul class="points"><li>Ran a discovery phase that found no automation at all: donors got no thank-you, registrants got no confirmation, and contacts were stuck on one computer.</li><li>Reworked the project scope with the client to focus on her most urgent needs instead of the original evaluation reports.</li><li>Set up 5 automations in Zeffy, Mailchimp and Google Forms: instant thank-you emails and tax receipts, event confirmations with 2 reminders, a 6-month donor check-in, and QR-code event sign-ups.</li><li>Fixed Outlook contact syncing by moving contacts from "this computer only" to Microsoft 365, so they appear on her iPhone and iPad.</li><li>Wrote 3 self-contained step-by-step guides with testing and troubleshooting, so the charity can run everything without IT support.</li><li>Managed the project timeline and deliverables, meeting the client's needs on schedule.</li></ul>
-      <ul class="tags"><li>Zeffy</li><li>Mailchimp</li><li>Google Forms</li><li>Outlook / Microsoft 365</li><li>Process automation</li><li>Client delivery</li></ul>
+    <li><div class="role">
+      <div class="role-head"><div><h3>CRM Consultant / Team Lead</h3><span class="org">Shining L.I.G.H.T.E Youth Charity · XBIT 4500U capstone consulting project</span></div><span class="when">Apr – Aug 2026</span></div>
+      <p>Led a three-person student team that automated a youth charity's donor, event and contact workflows.</p>
+      <ul class="points"><li>Reworked the project scope with the client to target her most urgent needs.</li><li>Set up 5 automations: donor thank-yous and receipts, event reminders, a 6-month donor check-in and QR-code sign-ups.</li><li>Synced Outlook contacts to Microsoft 365 so they appear on every device.</li><li>Wrote 3 step-by-step guides so the charity runs it all without IT support.</li></ul>
+      <div class="role-tools"><span class="tools-label">Skills &amp; tools</span><ul class="tags"><li>Zeffy</li><li>Mailchimp</li><li>Google Forms</li><li>Outlook / Microsoft 365</li><li>Process automation</li><li>Client delivery</li></ul></div>
     </div></li>
-    <li><span class="when">Jun – Jul 2026</span><div class="role">
-      <h3>Business Development Representative</h3><span class="org">MPN Capital Markets · Remote · Student summer role</span>
-      <p>Generated new business for an energy procurement firm by prospecting companies across Canada and the U.S.</p>
-      <ul class="points"><li>Made outbound cold calls and wrote prospecting emails to businesses across North America.</li><li>Qualified leads and identified energy procurement opportunities, handing warm prospects to senior sales representatives.</li><li>Booked meetings that fed the sales pipeline, and tracked every lead and activity in HubSpot CRM.</li><li>Built confidence handling objections and pitching to decision-makers in a fast-paced sales environment.</li></ul>
-      <ul class="tags"><li>HubSpot CRM</li><li>Cold calling</li><li>Lead qualification</li><li>Sales pipeline</li></ul>
+    <li><div class="role">
+      <div class="role-head"><div><h3>Business Development Representative</h3><span class="org">MPN Capital Markets · Remote · Student summer role</span></div><span class="when">Jun – Jul 2026</span></div>
+      <p>Generated new business for an energy procurement firm across Canada and the U.S.</p>
+      <ul class="points"><li>Made outbound cold calls and sent prospecting emails.</li><li>Qualified leads and handed warm prospects to senior sales reps.</li><li>Booked meetings and tracked every lead in HubSpot CRM.</li></ul>
+      <div class="role-tools"><span class="tools-label">Skills &amp; tools</span><ul class="tags"><li>HubSpot CRM</li><li>Cold calling</li><li>Lead qualification</li><li>Sales pipeline</li></ul></div>
     </div></li>
-    <li><span class="when">Sep 2024 – Present</span><div class="role">
-      <h3>Merchandiser</h3><span class="org">Liz's No Frills · Whitby, ON · Part-time</span>
+    <li><div class="role">
+      <div class="role-head"><div><h3>Merchandiser</h3><span class="org">Liz's No Frills · Whitby, ON · Part-time</span></div><span class="when">Sep 2024 – Present</span></div>
       <p>Keep a high-traffic grocery store stocked and running smoothly while studying full-time.</p>
-      <ul class="points"><li>Monitor stock levels, maintain inventory, and report discrepancies so shelves stay accurate and full.</li><li>Rotate product and manage shelf stocking to reduce waste and keep fresh items moving.</li><li>Deliver friendly customer service and help shoppers find what they need.</li><li>Work with the store team on daily operations while upholding safety standards.</li></ul>
-      <ul class="tags"><li>Inventory control</li><li>Customer service</li><li>Teamwork</li></ul>
+      <ul class="points"><li>Monitor stock levels and report inventory discrepancies.</li><li>Rotate product to reduce waste and keep fresh items moving.</li><li>Help customers and work with the team on daily operations.</li></ul>
+      <div class="role-tools"><span class="tools-label">Skills &amp; tools</span><ul class="tags"><li>Inventory control</li><li>Customer service</li><li>Teamwork</li></ul></div>
     </div></li>
   </ol>
 </div></section>
@@ -363,23 +367,23 @@ footer .wrap{padding-block:24px;color:var(--muted);font-size:13px;border-top:1px
   <div class="sec-head"><h2>Skills</h2></div>
   <div class="skill-split">
     <div class="skill-col">
-      <h3 class="label">Technical skills</h3>
+      <h3 class="label">Technical Skills</h3>
       <div class="skills">
-        <div><h4>Data &amp; business intelligence</h4><ul><li>Power BI</li><li>Tableau</li><li>SQL</li><li>Excel</li><li>Google Analytics</li></ul></div>
-        <div><h4>Web &amp; development</h4><ul><li>WordPress</li><li>HTML/CSS</li><li>Python</li><li>Flask</li><li>MySQL</li><li>Next.js / React</li><li>SEO</li><li>Website administration</li></ul></div>
-        <div><h4>CRM &amp; business tools</h4><ul><li>HubSpot</li><li>Zeffy</li><li>Mailchimp</li><li>Microsoft Outlook</li><li>ClickUp</li><li>Slack</li><li>PowerPoint</li></ul></div>
-        <div><h4>IT &amp; security</h4><ul><li>Cybersecurity fundamentals</li><li>IT security policy</li><li>Project management</li></ul></div>
+        <div><h4>Data &amp; Business Intelligence</h4><ul><li>Power BI</li><li>Tableau</li><li>SQL</li><li>Excel</li><li>Google Analytics</li></ul></div>
+        <div><h4>Web &amp; Development</h4><ul><li>WordPress</li><li>HTML/CSS</li><li>Python</li><li>Flask</li><li>MySQL</li><li>Next.js / React</li><li>SEO</li><li>Website administration</li></ul></div>
+        <div><h4>CRM &amp; Business Tools</h4><ul><li>HubSpot</li><li>Zeffy</li><li>Mailchimp</li><li>Microsoft Outlook</li><li>ClickUp</li><li>Slack</li><li>PowerPoint</li></ul></div>
+        <div><h4>IT &amp; Security</h4><ul><li>Cybersecurity fundamentals</li><li>IT security policy</li><li>Project management</li></ul></div>
       </div>
     </div>
     <div class="skill-col">
-      <h3 class="label">Soft skills</h3>
+      <h3 class="label">Soft Skills</h3>
       <ul class="soft">
         <li><strong>Leadership</strong><span>Led a three-person team through a client CRM automation project; co-founded a student association.</span></li>
         <li><strong>Communication</strong><span>Cold-called and qualified leads at MPN Capital Markets; explain technical changes to non-technical teams.</span></li>
-        <li><strong>Stakeholder &amp; client work</strong><span>Gather content and approvals from nonprofit staff, branch leads, and small business owners.</span></li>
+        <li><strong>Stakeholder &amp; Client Work</strong><span>Gather content and approvals from nonprofit staff, branch leads, and small business owners.</span></li>
         <li><strong>Presentation</strong><span>Build clear, polished PowerPoint decks for class and client work.</span></li>
-        <li><strong>Problem solving</strong><span>Turn messy processes into working systems, from donor CRMs to inventory tracking.</span></li>
-        <li><strong>Time management</strong><span>Balance full-time studies, part-time work, and volunteer roles at once.</span></li>
+        <li><strong>Problem Solving</strong><span>Turn messy processes into working systems, from donor CRMs to inventory tracking.</span></li>
+        <li><strong>Time Management</strong><span>Balance full-time studies, part-time work, and volunteer roles at once.</span></li>
       </ul>
     </div>
   </div>
