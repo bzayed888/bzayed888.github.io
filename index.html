@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Basil Zayed: Technology Management (IT) student at Ontario Tech University. Projects in business intelligence, CRM, web and IT support, plus resume and certifications.">
+<meta property="og:title" content="Basil Zayed | Portfolio">
+<meta property="og:description" content="Basil Zayed: Technology Management (IT) student at Ontario Tech University. Projects in business intelligence, CRM, web and IT support, plus resume and certifications.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bzayed888.github.io/">
+<meta property="og:image" content="https://bzayed888.github.io/helpdesk-thumb.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121c2b'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23fff' text-anchor='middle'%3EBZ%3C/text%3E%3C/svg%3E">
+<title>Basil Zayed | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working "project file" — hero with status panel, then project cards as case files with screenshot slots, then a dated timeline. */
+:root{
+  --bg:#f3f5f8;
+  --surface:#ffffff;
+  --ink:#121c2b;
+  --muted:#556275;
+  --line:#d8dee7;
+  --accent:#2a5bd7;
+  --accent-soft:#e3eafb;
+  --live:#1f8a5b;
+  --wip:#b7791f;
+  --slot:#e9edf3;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1420; --surface:#151d2c; --ink:#e8edf5; --muted:#9aa7ba; --line:#263248;
+    --accent:#7aa2ff; --accent-soft:#1c2a4a; --live:#4cc58d; --wip:#e2a948; --slot:#1b2537;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1420; --surface:#151d2c; --ink:#e8edf5; --muted:#9aa7ba; --line:#263248;
+  --accent:#7aa2ff; --accent-soft:#1c2a4a; --live:#4cc58d; --wip:#e2a948; --slot:#1b2537;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+.mono{font-family:var(--mono)}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* sample note */
+.note{background:var(--accent-soft);color:var(--ink);font-size:14px}
+.note .wrap{padding-block:10px}
+
+/* nav */
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;flex-wrap:wrap}
+.mark{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.mark span{color:var(--accent)}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-weight:500}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;padding-block:48px 64px;align-items:end}
+.hero h1{font-size:clamp(44px,8vw,88px);font-weight:800;letter-spacing:-.035em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.headline{font-family:var(--display);font-size:clamp(18px,2.4vw,24px);font-weight:600;color:var(--ink);margin:14px 0 0;text-wrap:balance}
+.hero p.lede{font-size:18px;color:var(--muted);max-width:62ch;margin:16px 0 0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:8px;font-weight:600;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--surface);font-family:var(--body);font-size:15px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.status{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:14px;min-width:0}
+.status dl{margin:0;display:grid;gap:12px}
+.status div{display:grid;grid-template-columns:110px 1fr;gap:12px;min-width:0}
+.status dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.status dd{margin:0;font-weight:500}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--live);margin-right:8px;vertical-align:middle;box-shadow:0 0 0 4px color-mix(in srgb, var(--live) 20%, transparent)}
+
+section{padding-block:56px;border-top:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.02em}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.grid>.card:last-child:nth-child(odd){grid-column:1/-1}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.shot{aspect-ratio:16/9;max-width:100%;background:repeating-linear-gradient(135deg,var(--slot) 0 12px,transparent 12px 24px),var(--surface);border-bottom:1px solid var(--line);display:grid;place-items:center;text-align:center;padding:16px}
+.shot span{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--surface);padding:6px 10px;border-radius:6px;border:1px dashed var(--line)}
+.body{padding:20px;display:flex;flex-direction:column;gap:12px;flex:1;min-width:0}
+.meta{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.pill{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid currentColor}
+.pill.live{color:var(--live)} .pill.wip{color:var(--wip)} .pill.done{color:var(--muted)}
+.card h3{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.card p{margin:0;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.tags li{list-style:none;font-family:var(--mono);font-size:12px;background:var(--accent-soft);color:var(--ink);padding:3px 8px;border-radius:4px}
+.tags{padding-left:0;margin-bottom:0}
+.links{display:flex;gap:16px;font-weight:600;font-size:14px}
+.links a{text-decoration:none}
+.links a:hover{text-decoration:underline}
+
+.shot{position:relative;overflow:hidden}
+@media (min-width:821px){.grid>.card:last-child:nth-child(odd){display:grid;grid-template-columns:1fr 1fr}.grid>.card:last-child:nth-child(odd) .shot{aspect-ratio:auto;min-height:100%;border-bottom:0;border-right:1px solid var(--line)}}
+.shot.photo{padding:0;background:var(--slot)}
+.shot.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.shot.diagram{background:var(--bg);padding:12px 16px}
+.shot.diagram svg{width:100%;height:100%}
+.link-btn{background:none;border:0;padding:0;font:inherit;font-weight:600;font-size:14px;color:var(--accent);cursor:pointer}
+.link-btn:hover{text-decoration:underline}
+.case{width:min(860px,calc(100vw - 32px))}
+.case-body{padding:20px 24px 28px;display:grid;gap:12px;max-width:72ch}
+.case-body h4{font-family:var(--display);font-size:18px;margin:14px 0 0}
+.case-body p{margin:0;color:var(--muted)}
+.case-facts{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;background:var(--bg);border-radius:10px;padding:14px 16px}
+.case-facts dt{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.case-facts dd{margin:2px 0 0;font-weight:600;font-size:14px}
+.case-steps{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted)}
+.case-steps strong{color:var(--ink)}
+.case-fig{margin:8px 0 0;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px}
+.case-fig svg{width:100%;height:auto;display:block}
+.case-fig figcaption{font-size:13px;color:var(--muted);margin-top:6px;text-align:center}
+@media (max-width:640px){.case-facts{grid-template-columns:1fr 1fr}}
+/* experience */
+.timeline{list-style:none;margin:0;padding:0;display:grid}
+.timeline>li{display:grid;grid-template-columns:180px 1fr;gap:24px;padding-block:20px;border-bottom:1px solid var(--line)}
+.timeline>li:first-child{padding-top:0}
+.when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:4px}
+.timeline h3{font-size:20px;font-weight:700}
+.timeline .org{color:var(--accent);font-weight:600}
+.timeline p{margin:6px 0 0;color:var(--muted);max-width:65ch}
+
+.role{min-width:0}
+.timeline .role>p{margin:8px 0 0;color:var(--ink);max-width:68ch}
+.points{margin:10px 0 0;padding-left:18px;display:grid;gap:5px;color:var(--muted);max-width:72ch}
+.points li::marker{color:var(--accent)}
+.role .tags{margin-top:12px}
+.role-link{margin-top:12px}
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.skills h4{font-family:var(--display);font-size:16px;font-weight:700;margin:0 0 10px}
+.skill-split{display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
+.skill-col{display:grid;gap:18px;align-content:start;min-width:0}
+.skill-col>h3.label{font-family:var(--mono);font-size:12px;font-weight:500;line-height:1.4}
+.soft{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.soft li{display:grid;gap:2px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.soft li:last-child{border-bottom:0;padding-bottom:0}
+.soft strong{font-weight:600}
+.soft span{color:var(--muted);font-size:14px}
+.skills ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.skills li{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:4px 10px;font-size:14px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.plain{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.plain li strong{display:block;font-weight:600}
+.plain li span{color:var(--muted);font-size:14px}
+
+/* contact */
+.contact .wrap{padding-block:64px 80px}
+.contact h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.03em;max-width:18ch}
+.email-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:24px}
+.email{font-family:var(--mono);font-size:18px;background:var(--surface);border:1px solid var(--line);padding:10px 14px;border-radius:8px;user-select:all;word-break:break-all}
+.copied{color:var(--live);font-size:14px;font-weight:600}
+.certs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.cert-img{position:relative;display:block;width:100%;padding:0;border:0;border-bottom:1px solid var(--line);background:#fff;aspect-ratio:660/510;max-width:100%}
+.cert-img img{display:block;width:100%;height:100%;object-fit:cover}
+.cert-zoom{position:absolute;right:10px;bottom:10px;font-family:var(--mono);font-size:12px;background:var(--ink);color:var(--surface);padding:4px 10px;border-radius:999px;opacity:0;transition:opacity .15s}
+.cert-img:hover .cert-zoom,.cert-img:focus-visible .cert-zoom{opacity:1}
+.cert-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.viewer{width:min(920px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);overflow:auto}
+.viewer::backdrop{background:rgba(10,15,25,.6)}
+.v-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.v-titles{display:grid;gap:4px;min-width:0}
+.v-titles h3{font-size:20px;font-weight:700}
+.v-doc{background:var(--slot);padding:20px;display:grid;place-items:center}
+.v-doc img{max-width:100%;height:auto;background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.18)}
+.v-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:16px 20px;border-top:1px solid var(--line)}
+.v-status{font-size:14px;color:var(--muted)}
+.cert-body{padding:18px 20px;display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
+.cert h3{font-size:18px;font-weight:700}
+.cert-meta{margin:0;color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.plain.lead{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+@media (max-width:820px){.certs,.plain.lead{grid-template-columns:1fr}}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-info{display:grid;gap:20px;min-width:0}
+.contact-info h2{margin-top:-8px}
+.reach{margin:0;display:grid;gap:12px}
+.reach div{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center}
+.reach dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.reach dd{margin:0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-width:0}
+.reach .email{font-size:16px;padding:8px 12px}
+.btn.small{padding:8px 12px;font-size:13px}
+.resume-box{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;background:var(--accent-soft);border-radius:12px;padding:18px 20px}
+.resume-box strong{display:block;font-family:var(--display);font-size:18px}
+.resume-box span{color:var(--muted);font-size:14px}
+.contact .cta{margin-top:0}
+.mail-form{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;gap:8px;min-width:0}
+.mail-form h3{font-size:22px;font-weight:700;margin-bottom:8px}
+.mail-form label{font-weight:600;font-size:14px;margin-top:6px}
+.mail-form input,.mail-form textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;resize:vertical}
+.mail-form input:focus,.mail-form textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.mail-form .btn{justify-content:center;margin-top:10px}
+.form-error{margin:4px 0 0;color:var(--wip);font-size:14px;font-weight:600}
+.form-hint{margin:4px 0 0;color:var(--muted);font-size:13px}
+@media (max-width:820px){.contact-grid{grid-template-columns:1fr;gap:32px}}
+.icon-btn{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);transition:border-color .15s,transform .15s}
+.icon-btn svg{width:22px;height:22px}
+.icon-btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+.icon-btn.sm{width:34px;height:34px;border-radius:8px}
+.icon-btn.sm svg{width:17px;height:17px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.foot-icons{display:inline-flex;gap:8px}
+.resume-cta{justify-content:center;margin-top:24px}
+.resume-view{background:var(--slot);border:1px solid var(--line);border-radius:12px;padding:clamp(12px,3vw,32px);display:grid;place-items:center}
+.resume-view img{width:100%;max-width:820px;height:auto;background:#fff;box-shadow:0 6px 30px rgba(10,20,40,.15);border-radius:2px}
+footer .wrap{padding-block:24px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+
+@media (max-width:820px){
+  .hero .wrap,.two{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .skills,.skill-split{grid-template-columns:1fr}
+  .timeline li{grid-template-columns:1fr;gap:4px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .card{transition:transform .2s ease,border-color .2s ease}
+  .card:hover{transform:translateY(-3px);border-color:var(--accent)}
+}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <div class="mark">Basil Zayed<span>.</span></div>
+  <ul>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <p class="label">Ontario Tech University · Technology Management (IT)</p>
+    <h1>Basil <em>Zayed</em></h1>
+    <p class="headline">Technology Management Student | Business Intelligence · CRM · Web</p>
+    <p class="lede">Fourth-year Technology Management (IT) student at Ontario Tech University. I build practical systems for small teams: I administer a nonprofit's website, led a three-person CRM automation project, and build Power BI and Tableau dashboards. I'm looking for co-op and internship roles in business intelligence, CRM, web, and IT administration, where I can connect what the business needs with the technology that delivers it.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See my projects</a>
+      <button class="btn" type="button" data-dl="resume">Download Resume</button>
+      <a class="icon-btn" href="https://www.linkedin.com/in/basil-zayed-0aab61336/" target="_blank" rel="noopener" aria-label="LinkedIn profile" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a class="icon-btn" href="https://github.com/bzayed888" target="_blank" rel="noopener" aria-label="GitHub profile" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+    </div>
+  </div>
+  <aside class="status" aria-label="Availability">
+    <p class="label" style="margin:0"><span class="dot"></span>Open to co-op / internships</p>
+    <dl>
+      <div><dt>Focus</dt><dd>Business intelligence, CRM, web, IT project work, administrator roles</dd></div>
+      <div><dt>Based in</dt><dd>Whitby, ON · Durham Region / GTA</dd></div>
+      <div><dt>Degree</dt><dd>Technology Management (IT), expected 2027</dd></div>
+    </dl>
+  </aside>
+</div></header>
+
+<section id="experience"><div class="wrap">
+  <div class="sec-head"><h2>Experience</h2><span class="label">Most recent first</span></div>
+  <ol class="timeline">
+    <li><span class="when">Jul 2026 – Present</span><div class="role">
+      <h3>Website Administrator</h3><span class="org">The HOPE Initiative Foundation · Remote · Volunteer</span>
+      <p>Own the day-to-day running and growth of a national youth nonprofit's website, working directly with the CEO and program teams.</p>
+      <ul class="points"><li>Manage and publish website content in WordPress, keeping pages accurate, accessible, and aligned with the foundation's goals.</li><li>Redesigned the home page around an interactive map of the foundation's branches, so visitors can find their local chapter quickly.</li><li>Built the Core Team page and a dedicated team page for ZIPS, coordinating with members to collect bios and photo permissions.</li><li>Leading search engine optimization (SEO) work so the foundation shows up when people search for youth and charity programs.</li><li>Promote national and local programs by creating and publishing content that supports community outreach.</li><li>Troubleshoot site issues and roll out updates that keep the site secure, fast, and easy to use.</li></ul>
+      <ul class="tags"><li>WordPress</li><li>SEO</li><li>Web content</li><li>Accessibility</li></ul>
+      <div class="links role-link"><a href="https://thehopeinitiative.ca/" target="_blank" rel="noopener">Visit thehopeinitiative.ca ↗</a></div>
+    </div></li>
+    <li><span class="when">Apr – Aug 2026</span><div class="role">
+      <h3>CRM Consultant / Team Lead</h3><span class="org">Shining L.I.G.H.T.E Youth Charity · XBIT 4500U capstone consulting project</span>
+      <p>Led a three-person student team that automated a youth charity's donor, event and contact workflows using tools it already paid for.</p>
+      <ul class="points"><li>Ran a discovery phase that found no automation at all: donors got no thank-you, registrants got no confirmation, and contacts were stuck on one computer.</li><li>Reworked the project scope with the client to focus on her most urgent needs instead of the original evaluation reports.</li><li>Set up 5 automations in Zeffy, Mailchimp and Google Forms: instant thank-you emails and tax receipts, event confirmations with 2 reminders, a 6-month donor check-in, and QR-code event sign-ups.</li><li>Fixed Outlook contact syncing by moving contacts from "this computer only" to Microsoft 365, so they appear on her iPhone and iPad.</li><li>Wrote 3 self-contained step-by-step guides with testing and troubleshooting, so the charity can run everything without IT support.</li><li>Managed the project timeline and deliverables, meeting the client's needs on schedule.</li></ul>
+      <ul class="tags"><li>Zeffy</li><li>Mailchimp</li><li>Google Forms</li><li>Outlook / Microsoft 365</li><li>Process automation</li><li>Client delivery</li></ul>
+    </div></li>
+    <li><span class="when">Jun – Jul 2026</span><div class="role">
+      <h3>Business Development Representative</h3><span class="org">MPN Capital Markets · Remote · Student summer role</span>
+      <p>Generated new business for an energy procurement firm by prospecting companies across Canada and the U.S.</p>
+      <ul class="points"><li>Made outbound cold calls and wrote prospecting emails to businesses across North America.</li><li>Qualified leads and identified energy procurement opportunities, handing warm prospects to senior sales representatives.</li><li>Booked meetings that fed the sales pipeline, and tracked every lead and activity in HubSpot CRM.</li><li>Built confidence handling objections and pitching to decision-makers in a fast-paced sales environment.</li></ul>
+      <ul class="tags"><li>HubSpot CRM</li><li>Cold calling</li><li>Lead qualification</li><li>Sales pipeline</li></ul>
+    </div></li>
+    <li><span class="when">Sep 2024 – Present</span><div class="role">
+      <h3>Merchandiser</h3><span class="org">Liz's No Frills · Whitby, ON · Part-time</span>
+      <p>Keep a high-traffic grocery store stocked and running smoothly while studying full-time.</p>
+      <ul class="points"><li>Monitor stock levels, maintain inventory, and report discrepancies so shelves stay accurate and full.</li><li>Rotate product and manage shelf stocking to reduce waste and keep fresh items moving.</li><li>Deliver friendly customer service and help shoppers find what they need.</li><li>Work with the store team on daily operations while upholding safety standards.</li></ul>
+      <ul class="tags"><li>Inventory control</li><li>Customer service</li><li>Teamwork</li></ul>
+    </div></li>
+  </ol>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <div class="sec-head"><h2>Projects</h2><span class="label">5 projects</span></div>
+  <div class="grid">
+
+    <article class="card">
+      <div class="shot diagram"><svg class="d-card" viewBox="0 0 640 306" role="img" aria-label="Diagram: three automated workflows. Donors and events in Zeffy and Mailchimp, event sign-ups with Google Forms and QR codes, and contacts synced through Outlook and Microsoft 365."><g font-family="var(--body)"><text x="320" y="26" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">Before: every email and contact handled by hand</text><path d="M320 36 L320 56" stroke="var(--accent)" stroke-width="2"/><path d="M314 50 L320 58 L326 50" fill="none" stroke="var(--accent)" stroke-width="2"/><rect x="16" y="68" width="192" height="226" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/><rect x="16" y="68" width="192" height="64" rx="12" fill="var(--accent)"/><rect x="16" y="112" width="192" height="20" fill="var(--accent)"/><text x="112.0" y="96" text-anchor="middle" font-size="16" font-weight="700" fill="var(--surface)">Donors &amp; events</text><text x="112.0" y="118" text-anchor="middle" font-size="12" fill="var(--surface)">Zeffy + Mailchimp</text><circle cx="38" cy="162" r="9" fill="var(--accent-soft)"/><path d="M33.5 162 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="54" y="166" font-size="12.5" fill="var(--ink)">Thank-you + tax receipt</text><circle cx="38" cy="214" r="9" fill="var(--accent-soft)"/><path d="M33.5 214 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="54" y="218" font-size="12.5" fill="var(--ink)">Confirmation + 2 reminders</text><circle cx="38" cy="266" r="9" fill="var(--accent-soft)"/><path d="M33.5 266 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="54" y="270" font-size="12.5" fill="var(--ink)">6-month donor check-in</text><rect x="224" y="68" width="192" height="226" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/><rect x="224" y="68" width="192" height="64" rx="12" fill="var(--accent)"/><rect x="224" y="112" width="192" height="20" fill="var(--accent)"/><text x="320.0" y="96" text-anchor="middle" font-size="16" font-weight="700" fill="var(--surface)">Event sign-ups</text><text x="320.0" y="118" text-anchor="middle" font-size="12" fill="var(--surface)">Google Forms + QR code</text><circle cx="246" cy="162" r="9" fill="var(--accent-soft)"/><path d="M241.5 162 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="262" y="166" font-size="12.5" fill="var(--ink)">Confirmation emails</text><circle cx="246" cy="214" r="9" fill="var(--accent-soft)"/><path d="M241.5 214 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="262" y="218" font-size="12.5" fill="var(--ink)">QR code kids can scan</text><circle cx="246" cy="266" r="9" fill="var(--accent-soft)"/><path d="M241.5 266 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="262" y="270" font-size="12.5" fill="var(--ink)">Free or low-cost setup</text><rect x="432" y="68" width="192" height="226" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/><rect x="432" y="68" width="192" height="64" rx="12" fill="var(--accent)"/><rect x="432" y="112" width="192" height="20" fill="var(--accent)"/><text x="528.0" y="96" text-anchor="middle" font-size="16" font-weight="700" fill="var(--surface)">Contacts</text><text x="528.0" y="118" text-anchor="middle" font-size="12" fill="var(--surface)">Outlook + Microsoft 365</text><circle cx="454" cy="162" r="9" fill="var(--accent-soft)"/><path d="M449.5 162 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="470" y="166" font-size="12.5" fill="var(--ink)">Saved to the cloud</text><circle cx="454" cy="214" r="9" fill="var(--accent-soft)"/><path d="M449.5 214 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="470" y="218" font-size="12.5" fill="var(--ink)">Synced to iPhone &amp; iPad</text><circle cx="454" cy="266" r="9" fill="var(--accent-soft)"/><path d="M449.5 266 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="470" y="270" font-size="12.5" fill="var(--ink)">New + classic Outlook</text></g></svg></div>
+      <div class="body">
+        <div class="meta"><span class="label">Capstone · Team lead · Apr – Aug 2026</span><span class="pill done">Delivered</span></div>
+        <h3>Automating a youth charity's admin work</h3>
+        <p>Led a three-person capstone team that replaced a charity's manual follow-ups with 5 automations in tools it already used: donor thank-yous, event reminders, a 6-month donor check-in, QR-code sign-ups and contacts synced across devices.</p>
+        <ul class="tags"><li>Zeffy</li><li>Mailchimp</li><li>Google Forms</li><li>Outlook</li><li>Team lead</li></ul>
+        <div class="links"><button class="link-btn" type="button" id="open-case">Read case study →</button></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="shot photo"><img src="ttc-tableau-thumb.jpg" alt="Tableau dashboard of TTC subway delays: delay time by cause, monthly trend, top 10 stations and a day-by-hour heatmap" loading="eager"></div>
+      <div class="body">
+        <div class="meta"><span class="label">Personal project · Tableau</span><span class="pill live">Live</span></div>
+        <h3>Where Toronto's subway time goes</h3>
+        <p>An interactive dashboard of 16,550 TTC subway delays from City of Toronto open data, with filters by line, cause and month. I cleaned 1,265 station spellings down to 70 stations and grouped 140 delay codes into 10 causes. The headline: 46% of delay time is caused by people, not train breakdowns.</p>
+        <ul class="tags"><li>Tableau</li><li>Data cleaning</li><li>Data visualization</li><li>Open data</li></ul>
+        <div class="links"><a href="https://public.tableau.com/app/profile/basil.zayed/viz/WhereTorontosSubwayTimeGoes/Dashboard1" target="_blank" rel="noopener">View live dashboard on Tableau Public ↗</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="shot photo"><img src="watchlist-thumb.jpg" alt="WatchList app: a user's watchlist with movies marked Favorite, Watched, and Want to Watch" loading="eager"></div>
+      <div class="body">
+        <div class="meta"><span class="label">Personal project</span><span class="pill done">Built</span></div>
+        <h3>WatchList movie tracker</h3>
+        <p>A full-stack movie tracker: users sign up, sort films into Want to Watch, Watched, or Favorite, and rate and review them 1–10. Built on a four-table MySQL database with secure, hashed logins.</p>
+        <ul class="tags"><li>Python</li><li>Flask</li><li>MySQL</li><li>HTML/CSS</li></ul>
+        <div class="links"><a href="https://github.com/bzayed888/watchlist" target="_blank" rel="noopener">View code on GitHub ↗</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="shot photo"><img src="helpdesk-thumb.jpg" alt="IT Helpdesk support dashboard: open, overdue and resolved ticket counts, SLA met rate, and weekly opened vs. resolved chart" loading="eager"></div>
+      <div class="body">
+        <div class="meta"><span class="label">Personal project</span><span class="pill done">Built</span></div>
+        <h3>IT Helpdesk ticketing system</h3>
+        <p>A ticketing system for an office IT team: employees report issues, agents work a priority queue, and admins manage roles. Tracks every ticket against a response target (SLA), keeps a full change history, and shows a live dashboard of workload and on-time rate. Covered by 14 automated tests.</p>
+        <ul class="tags"><li>Python</li><li>Flask</li><li>SQLite</li><li>Chart.js</li><li>Access control</li></ul>
+        <div class="links"><a href="https://github.com/bzayed888/it-helpdesk" target="_blank" rel="noopener">View code on GitHub ↗</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="shot photo"><img src="inventory-thumb.jpg" alt="Excel dashboard for a vintage resale business: KPI tiles, profit by platform and category, monthly revenue, sell-through and speed of sale" loading="eager"></div>
+      <div class="body">
+        <div class="meta"><span class="label">Personal project</span><span class="pill done">In use</span></div>
+        <h3>Vintage resale inventory system</h3>
+        <p>The Excel system I use to run my own vintage resale business: 80+ items tracked from purchase to sale, with dropdowns, automatic profit and status, and a live dashboard of profit by platform and category, monthly sales and how fast items sell. 80% sell-through and a 62% average margin so far.</p>
+        <ul class="tags"><li>Excel</li><li>SUMIFS / INDEX-MATCH</li><li>Dashboards</li><li>Data validation</li></ul>
+        
+      </div>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="sec-head"><h2>Skills</h2></div>
+  <div class="skill-split">
+    <div class="skill-col">
+      <h3 class="label">Technical skills</h3>
+      <div class="skills">
+        <div><h4>Data &amp; business intelligence</h4><ul><li>Power BI</li><li>Tableau</li><li>SQL</li><li>Excel</li><li>Google Analytics</li></ul></div>
+        <div><h4>Web &amp; development</h4><ul><li>WordPress</li><li>HTML/CSS</li><li>Python</li><li>Flask</li><li>MySQL</li><li>Next.js / React</li><li>SEO</li><li>Website administration</li></ul></div>
+        <div><h4>CRM &amp; business tools</h4><ul><li>HubSpot</li><li>Zeffy</li><li>Mailchimp</li><li>Microsoft Outlook</li><li>ClickUp</li><li>Slack</li><li>PowerPoint</li></ul></div>
+        <div><h4>IT &amp; security</h4><ul><li>Cybersecurity fundamentals</li><li>IT security policy</li><li>Project management</li></ul></div>
+      </div>
+    </div>
+    <div class="skill-col">
+      <h3 class="label">Soft skills</h3>
+      <ul class="soft">
+        <li><strong>Leadership</strong><span>Led a three-person team through a client CRM automation project; co-founded a student association.</span></li>
+        <li><strong>Communication</strong><span>Cold-called and qualified leads at MPN Capital Markets; explain technical changes to non-technical teams.</span></li>
+        <li><strong>Stakeholder &amp; client work</strong><span>Gather content and approvals from nonprofit staff, branch leads, and small business owners.</span></li>
+        <li><strong>Presentation</strong><span>Build clear, polished PowerPoint decks for class and client work.</span></li>
+        <li><strong>Problem solving</strong><span>Turn messy processes into working systems, from donor CRMs to inventory tracking.</span></li>
+        <li><strong>Time management</strong><span>Balance full-time studies, part-time work, and volunteer roles at once.</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="certifications"><div class="wrap">
+  <div class="sec-head"><h2>Certifications</h2><span class="label">3 earned · 2026</span></div>
+  <div class="certs">
+    <article class="cert">
+      <div class="cert-img"><img src="certs/google-analytics-thumb.jpg" alt="Google Analytics Certification certificate issued to Basil Zayed"></div>
+      <div class="cert-body">
+        <span class="label">Google Skillshop</span>
+        <h3>Google Analytics Certification</h3>
+        <p class="cert-meta">Issued Jan 28, 2026 · Valid to Jan 28, 2027</p>
+        <div class="cert-actions">
+          <button class="btn primary small" type="button" data-dl="google-analytics">Download PDF</button>
+        </div>
+      </div>
+    </article>
+    <article class="cert">
+      <div class="cert-img"><img src="certs/ibm-cybersecurity-thumb.jpg" alt="Getting Started with Cybersecurity certificate issued to Basil Zayed"></div>
+      <div class="cert-body">
+        <span class="label">IBM SkillsBuild</span>
+        <h3>Getting Started with Cybersecurity</h3>
+        <p class="cert-meta">Issued Jan 21, 2026</p>
+        <div class="cert-actions">
+          <button class="btn primary small" type="button" data-dl="ibm-cybersecurity">Download PDF</button>
+        </div>
+      </div>
+    </article>
+    <article class="cert">
+      <div class="cert-img"><img src="certs/coursera-clickup-thumb.jpg" alt="Introduction to Project Management with ClickUp certificate issued to Basil Zayed"></div>
+      <div class="cert-body">
+        <span class="label">Coursera</span>
+        <h3>Introduction to Project Management with ClickUp</h3>
+        <p class="cert-meta">Issued Jan 29, 2026</p>
+        <div class="cert-actions">
+          <button class="btn primary small" type="button" data-dl="coursera-clickup">Download PDF</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<section id="leadership"><div class="wrap">
+  <div class="sec-head"><h2>Leadership</h2></div>
+  <ul class="plain lead">
+    <li><strong>Co-founder &amp; Vice President</strong><span>Social Networking Association, Ontario Tech</span></li>
+    <li><strong>Team Lead, CRM project</strong><span>Shining L.I.G.H.T.E Youth Charity</span></li>
+  </ul>
+</div></section>
+
+<dialog class="viewer case" id="case" aria-labelledby="case-title">
+  <div class="v-head">
+    <div class="v-titles"><span class="label">Case study · Shining L.I.G.H.T.E Youth Charity</span><h3 id="case-title">Automating a youth charity's donor, event and contact workflows</h3></div>
+    <button class="btn small" type="button" id="case-close">Close ✕</button>
+  </div>
+  <div class="case-body">
+    <dl class="case-facts">
+      <div><dt>My role</dt><dd>Team Lead, CRM Consultant</dd></div>
+      <div><dt>Team</dt><dd>3 students</dd></div>
+      <div><dt>Timeline</dt><dd>Apr – Aug 2026</dd></div>
+      <div><dt>Course</dt><dd>XBIT 4500U Capstone</dd></div>
+    </dl>
+
+    <h4>The client</h4>
+    <p>Shining L.I.G.H.T.E is a youth charity founded in 2023 that supports underprivileged kids through education and empowerment programs. It runs on a small budget with no IT staff.</p>
+
+    <h4>The challenge</h4>
+    <ul class="points">
+      <li>Donors who gave through Zeffy got no automatic thank-you or receipt.</li>
+      <li>People who registered for events got no confirmation, so the founder spent time answering "did you get my registration?"</li>
+      <li>Google Form sign-ups sent no confirmation, and kids had no easy way to reach the form.</li>
+      <li>Outlook contacts were saved on one computer only, so they never reached her phone.</li>
+    </ul>
+
+    <h4>How the project changed</h4>
+    <p>Our charter planned evaluation reports on her CRM use. At the first client meeting we learned she already understood her tools; what she needed was hands-on automation, now. We dropped the CRM usage evaluation and put our time into building, testing and documenting the fixes she needed most.</p>
+
+    <h4>What we delivered</h4>
+    <ol class="case-steps">
+      <li><strong>Donor and attendee automation guide.</strong> Instant thank-you emails with tax receipts in Zeffy, event e-tickets with a confirmation plus reminders 7 days and 1 day before, and a Mailchimp journey that checks in with donors 6 months after they give.</li>
+      <li><strong>Google Form and QR code guide.</strong> Sign-up forms that email each person a confirmation, plus a QR code kids can scan. We gave two options: a free one in Canva, or a $27.99 lifetime add-on with fewer steps.</li>
+      <li><strong>Outlook sync guide.</strong> Moved contacts from "this computer only" into her Microsoft 365 account so they sync to her iPhone and iPad, with steps for both new and classic Outlook and a troubleshooting section.</li>
+    </ol>
+
+    <figure class="case-fig"><svg class="d-case" viewBox="0 0 640 306" role="img" aria-label="Diagram: three automated workflows. Donors and events in Zeffy and Mailchimp, event sign-ups with Google Forms and QR codes, and contacts synced through Outlook and Microsoft 365."><g font-family="var(--body)"><text x="320" y="26" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">Before: every email and contact handled by hand</text><path d="M320 36 L320 56" stroke="var(--accent)" stroke-width="2"/><path d="M314 50 L320 58 L326 50" fill="none" stroke="var(--accent)" stroke-width="2"/><rect x="16" y="68" width="192" height="226" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/><rect x="16" y="68" width="192" height="64" rx="12" fill="var(--accent)"/><rect x="16" y="112" width="192" height="20" fill="var(--accent)"/><text x="112.0" y="96" text-anchor="middle" font-size="16" font-weight="700" fill="var(--surface)">Donors &amp; events</text><text x="112.0" y="118" text-anchor="middle" font-size="12" fill="var(--surface)">Zeffy + Mailchimp</text><circle cx="38" cy="162" r="9" fill="var(--accent-soft)"/><path d="M33.5 162 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="54" y="166" font-size="12.5" fill="var(--ink)">Thank-you + tax receipt</text><circle cx="38" cy="214" r="9" fill="var(--accent-soft)"/><path d="M33.5 214 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="54" y="218" font-size="12.5" fill="var(--ink)">Confirmation + 2 reminders</text><circle cx="38" cy="266" r="9" fill="var(--accent-soft)"/><path d="M33.5 266 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="54" y="270" font-size="12.5" fill="var(--ink)">6-month donor check-in</text><rect x="224" y="68" width="192" height="226" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/><rect x="224" y="68" width="192" height="64" rx="12" fill="var(--accent)"/><rect x="224" y="112" width="192" height="20" fill="var(--accent)"/><text x="320.0" y="96" text-anchor="middle" font-size="16" font-weight="700" fill="var(--surface)">Event sign-ups</text><text x="320.0" y="118" text-anchor="middle" font-size="12" fill="var(--surface)">Google Forms + QR code</text><circle cx="246" cy="162" r="9" fill="var(--accent-soft)"/><path d="M241.5 162 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="262" y="166" font-size="12.5" fill="var(--ink)">Confirmation emails</text><circle cx="246" cy="214" r="9" fill="var(--accent-soft)"/><path d="M241.5 214 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="262" y="218" font-size="12.5" fill="var(--ink)">QR code kids can scan</text><circle cx="246" cy="266" r="9" fill="var(--accent-soft)"/><path d="M241.5 266 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="262" y="270" font-size="12.5" fill="var(--ink)">Free or low-cost setup</text><rect x="432" y="68" width="192" height="226" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/><rect x="432" y="68" width="192" height="64" rx="12" fill="var(--accent)"/><rect x="432" y="112" width="192" height="20" fill="var(--accent)"/><text x="528.0" y="96" text-anchor="middle" font-size="16" font-weight="700" fill="var(--surface)">Contacts</text><text x="528.0" y="118" text-anchor="middle" font-size="12" fill="var(--surface)">Outlook + Microsoft 365</text><circle cx="454" cy="162" r="9" fill="var(--accent-soft)"/><path d="M449.5 162 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="470" y="166" font-size="12.5" fill="var(--ink)">Saved to the cloud</text><circle cx="454" cy="214" r="9" fill="var(--accent-soft)"/><path d="M449.5 214 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="470" y="218" font-size="12.5" fill="var(--ink)">Synced to iPhone &amp; iPad</text><circle cx="454" cy="266" r="9" fill="var(--accent-soft)"/><path d="M449.5 266 l3 3 l6 -6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="470" y="270" font-size="12.5" fill="var(--ink)">New + classic Outlook</text></g></svg><figcaption>Three workflows that used to be manual, now automated in tools the charity already had.</figcaption></figure>
+
+    <h4>Results</h4>
+    <ul class="points">
+      <li>5 automations, with no manual follow-up needed for thank-yous, confirmations or reminders.</li>
+      <li>Everything runs on tools the charity already used, at no cost or low cost.</li>
+      <li>Each guide is self-contained, with testing and troubleshooting steps, so no ongoing support is needed.</li>
+      <li>A handover package with recommendations for maintenance and future scaling.</li>
+    </ul>
+
+    <h4>My role as team lead</h4>
+    <ul class="points">
+      <li>Co-wrote all three guides with my teammates.</li>
+      <li>Split the work so everyone had a clear part and no one was overloaded.</li>
+      <li>Managed the timeline and deliverables, and met the client's needs on schedule.</li>
+    </ul>
+
+    <h4>What I took away</h4>
+    <p>Real clients change plans. Listening at the first meeting, and being willing to drop deliverables that didn't help her, made the project far more useful. Next time I would document scope changes as they happen instead of explaining them at the end.</p>
+  </div>
+</dialog>
+<script>window.CERTS = {"resume": {"file": "Basil Zayed - Resume.pdf", "url": "Basil-Zayed-Resume.pdf"}, "google-analytics": {"issuer": "Google Skillshop", "title": "Google Analytics Certification", "meta": "Issued Jan 28, 2026 \u00b7 Valid to Jan 28, 2027", "file": "Basil-Zayed-Google-Analytics-Certificate.pdf", "verify": ""}, "ibm-cybersecurity": {"issuer": "IBM SkillsBuild", "title": "Getting Started with Cybersecurity", "meta": "Issued Jan 21, 2026", "file": "Basil-Zayed-IBM-Cybersecurity-Certificate.pdf", "verify": "https://www.credly.com/badges/e4b96330-efad-40e6-aae8-69d663df4865"}, "coursera-clickup": {"issuer": "Coursera", "title": "Introduction to Project Management with ClickUp", "meta": "Issued Jan 29, 2026", "file": "Basil-Zayed-Coursera-Project-Management-Certificate.pdf", "verify": ""}};</script>
+
+<section class="contact" id="contact" style="padding-block:0"><div class="wrap contact-grid">
+  <div class="contact-info">
+    <p class="label">Contact</p>
+    <h2>Get in touch</h2>
+    <dl class="reach">
+      <div><dt>Email</dt><dd><span class="email" id="email">Bzayed888@gmail.com</span><button class="btn small" data-copy="email" type="button">Copy</button></dd></div>
+      <div><dt>Phone</dt><dd><span class="email" id="phone">647-915-9038</span><button class="btn small" data-copy="phone" type="button">Copy</button></dd></div>
+    </dl>
+    <span class="copied" id="copied" hidden>Copied</span>
+<div class="cta">
+      <button class="btn" type="button" data-dl="resume">Download Resume</button>
+      <a class="icon-btn" href="https://www.linkedin.com/in/basil-zayed-0aab61336/" target="_blank" rel="noopener" aria-label="LinkedIn profile" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a class="icon-btn" href="https://github.com/bzayed888" target="_blank" rel="noopener" aria-label="GitHub profile" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+    </div>
+  </div>
+
+  <form class="mail-form" id="mail-form" novalidate>
+    <h3>Send me a message</h3>
+    <label for="f-name">Your name</label>
+    <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required>
+    <label for="f-subject">Subject</label>
+    <input id="f-subject" name="subject" type="text" placeholder="Co-op opportunity at …" required>
+    <label for="f-body">Message</label>
+    <textarea id="f-body" name="body" rows="6" placeholder="Hi Basil, …" required></textarea>
+    <p class="form-error" id="form-error" hidden>Fill in your name, a subject, and a message.</p>
+    <button class="btn primary" type="submit">Open in my email app</button>
+    <p class="form-hint" id="form-hint">This opens your email app with the message ready to send to Bzayed888@gmail.com.</p>
+  </form>
+</div></section>
+
+<footer><div class="wrap">© 2026 Basil Zayed · Whitby, Ontario<span class="foot-icons"><a class="icon-btn" href="https://www.linkedin.com/in/basil-zayed-0aab61336/" target="_blank" rel="noopener" aria-label="LinkedIn profile" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a class="icon-btn" href="https://github.com/bzayed888" target="_blank" rel="noopener" aria-label="GitHub profile" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></span></div></footer>
+
+<script>
+function selectText(el){ var r=document.createRange(); r.selectNodeContents(el); var s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.copy);
+    var done = function(){ var c=document.getElementById('copied'); c.textContent = (btn.dataset.copy==='email'?'Email':'Phone number')+' copied'; c.hidden=false; setTimeout(function(){c.hidden=true},1800); };
+    try{ navigator.clipboard.writeText(el.textContent).then(done).catch(function(){ selectText(el); }); }
+    catch(e){ selectText(el); }
+  });
+});
+document.getElementById('mail-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = document.getElementById('f-name').value.trim();
+  var subject = document.getElementById('f-subject').value.trim();
+  var body = document.getElementById('f-body').value.trim();
+  var err = document.getElementById('form-error');
+  if(!name || !subject || !body){ err.hidden = false; return; }
+  err.hidden = true;
+  var full = body + '\n\n— ' + name;
+  var url = 'mailto:Bzayed888@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(full);
+  window.location.href = url;
+  document.getElementById('form-hint').textContent = "If your email app didn't open, copy the email address on the left and send it from your inbox.";
+});
+
+(function(){
+  var C = window.CERTS, dlP = null;
+  function getDl(){ if(!dlP){ dlP = (window.claude && window.claude.use) ? window.claude.use("downloads").catch(function(){return null;}) : Promise.resolve(null); } return dlP; }
+  async function download(slug, btn){
+    var c = C[slug], url = c.url || ('certs/' + slug + '.pdf'), label = btn.textContent;
+    var dl = await getDl();
+    if(dl){
+      try{
+        btn.textContent = 'Preparing…';
+        var blob = await (await fetch(url)).blob();
+        await dl.save({filename: c.file, data: blob});
+        btn.textContent = 'Downloaded';
+      }catch(e){ btn.textContent = label; }
+      setTimeout(function(){ btn.textContent = label; }, 2000);
+      return;
+    }
+    var a = document.createElement('a'); a.href = url; a.download = c.file; document.body.appendChild(a); a.click(); a.remove();
+  }
+  document.querySelectorAll('[data-dl]').forEach(function(b){ b.addEventListener('click', function(){ download(b.dataset.dl, b); }); });
+})();
+
+(function(){
+  var d=document.getElementById('case');
+  document.getElementById('open-case').addEventListener('click',function(){ if(d.showModal) d.showModal(); else d.setAttribute('open',''); });
+  function close(){ if(d.close) d.close(); else d.removeAttribute('open'); }
+  document.getElementById('case-close').addEventListener('click',close);
+  d.addEventListener('click',function(e){ if(e.target===d) close(); });
+})();
+</script>
+</body>
+</html>
